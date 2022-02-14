@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type='text/css' media='all'>
+	<link rel="stylesheet" href="~/css/site.css">
+
+	<link rel="icon" type="image/png" href="~/view/images/icons/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="~/view/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="~/view/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="~/view/css/util.css">
+	<link rel="stylesheet" type="text/css" href="~/view/css/main.css">
+	<script src="~/view/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="~/view/vendor/animsition/js/animsition.min.js"></script>
+	<script src="~/view/vendor/bootstrap/js/popper.js"></script>
+	<script src="~/view/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="~/view/vendor/select2/select2.min.js"></script>
+	<script src="~/view/vendor/daterangepicker/moment.min.js"></script>
+	<script src="~/view/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="~/view/vendor/countdowntime/countdowntime.js"></script>
+
+	<script src="~/js/site.js"></script>
+	<title>Label Tool</title>
+</head>
+
+<body>
+	<header>
+		<div class="container-fluid p-0">
+			<nav class="navbar navbar-expand-lg bg-light">
+				<div class="container-fluid">
+					<label class="navbar-brand">Labeled Management</label>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" style="color:#f8f9fa">
+						<span class="navbar-toggler-icon">
+							<i class="fa fa-navicon" style="color:black; font-size:28px;"></i>
+						</span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item fw-bold">
+								@Html.ActionLink("Home", "Index", "ListUser", null, new { @class = "nav-link text-black" })
+							</li>
+							<li class="nav-item fw-bold">
+								@Html.ActionLink("Category", "Index", "ListCategory", null, new { @class = "nav-link text-black" })
+							</li>
+							<li class="nav-item fw-bold">
+								@Html.ActionLink("Creat Account", "Index", "CreateAccount", null, new { @class = "nav-link text-black" })
+							</li>
+							<li class="nav-item fw-bold">
+								@Html.ActionLink("Change Password", "Index", "ChangePassword", null, new { @class = "nav-link text-black" })
+							</li>
+							<li class="nav-item fw-bold">
+								@Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "nav-link text-black" })
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<div class="CustomConfirmParent" id="alertConfirm" style="display: none">
+		<div class="CustomConfirmBody">
+			<div class="ConfirmTitle">Notification</div>
+			<div class="ConfirmMessage">
+				<span id="messageAlert"></span>
+			</div>
+			<div class="ConfirmFooter d-flex justify-content-between px-3 pt-4 text-end">
+				<button class="ConfirmButton btn btn-primary" onclick="confirmOKAlert()">OK</button>
+				<button class="ConfirmButton btn btn-secondary" onclick="confirmCancel()">Cancel</button>
+			</div>
+			<input type="hidden" id="hiddenId" value="" />
+			<input type="hidden" id="action" value="" />
+		</div>
+	</div>
+
+	@if (TempData["AlertMessage"] != null)
+	{
+		<div class="CustomConfirmParent" id="alertBox">
+			<div class="CustomConfirmBody">
+				<div class="ConfirmTitle">Notification</div>
+				<div class="ConfirmMessage">@TempData["AlertMessage"]</div>
+				<div class="ConfirmFooter px-3 pt-4 text-end">
+					<button class="ConfirmButton btn btn-primary" id="btnOK" onclick="confirmOK('@TempData["Url"]')">OK</button>
+				</div>
+			</div>
+		</div>
+	}
+
+	@RenderBody()
+
+</body>
+
+</html>

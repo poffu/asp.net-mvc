@@ -1,0 +1,18 @@
+2021-08-31 01:32:45,003	[ERROR]	LabeledData.Dao.Impl.TblUserDaoImpl::GetAllUser() :: Sql=SELECT * FROM tbl_user WHERE rule!=@rule AND login_name LIKE @username
+ LIMIT @limit OFFSET @offset
+ ORDER BY login_name DESC
+ - Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:32:45,011	[ERROR]	LabeledDataManagement.Controllers.ListUser::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:32:56,423	[ERROR]	LabeledData.Dao.Impl.TblUserDaoImpl::GetAllUser() :: Sql=SELECT * FROM tbl_user WHERE rule!=@rule AND login_name LIKE @username
+ LIMIT @limit OFFSET @offset
+ ORDER BY login_name DESC
+ - Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:32:56,423	[ERROR]	LabeledDataManagement.Controllers.ListUser::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:33:37,460	[ERROR]	LabeledData.Dao.Impl.TblUserDaoImpl::GetAllUser() :: Sql=SELECT * FROM tbl_user WHERE rule!=@rule AND login_name LIKE @username
+ LIMIT @limit OFFSET @offset
+ ORDER BY login_name DESC
+ - Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:33:37,477	[ERROR]	LabeledDataManagement.Controllers.ListUser::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY login_name DESC' at line 3
+2021-08-31 01:42:33,912	[ERROR]	LabeledData.Dao.Impl.TblUserDaoImpl::CheckExistLoginName() :: Sql=SELECT * FROM tbl_user WHERE user_id!=@userId login_name=@loginName LIMIT 1
+ - Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'login_name='test1' LIMIT 1' at line 1
+2021-08-31 01:42:33,919	[ERROR]	LabeledDataManagement.Controllers.EditAccount::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'login_name='test1' LIMIT 1' at line 1

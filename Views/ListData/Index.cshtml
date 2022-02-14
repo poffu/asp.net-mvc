@@ -1,0 +1,144 @@
+﻿@model List<LabeledData.Models.LabeledDataDto>
+
+@{
+	Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/list-user.css" type='text/css' media='all'>
+
+<div class="container-contact100">
+	<div class="wrap-contact100 w-100" style="padding: 10px 20px;">
+		@using (Html.BeginForm("Index", "ListData", FormMethod.Get, new { @class = "d-flex" }))
+		{
+			<input class="form-control me-2 input-search" type="search" name="topic" placeholder="Enter keyword" aria-label="Search" value="@ViewBag.topicSearch" />
+			<button class="btn btn-outline-success" type="submit">Search topic</button>
+		}
+
+		<div class="mt-4">
+			<table class="table">
+				<thead class="container-fluid">
+					<tr>
+						<th scope="col" style="width:4%">#</th>
+						<th scope="col" style="width:10%">English test</th>
+						<th scope="col" style="width:10%">Test format</th>
+						<th scope="col" style="width:15%">Topic</th>
+						<th scope="col">Question</th>
+						<th scope="col">Content</th>
+						<th scope="col" style="width:4%">Score</th>
+						<th scope="col" style="width:4%">Audio</th>
+						<th scope="col" style="width:4%">Image</th>
+						<th scope="col" style="width:8%">Action</th>
+					</tr>
+				</thead>
+				@foreach (var data in Model.Select((value, index) => new { index, value }))
+				{
+					<tbody style="border:1px solid black;">
+						<tr>
+							<th scope="row" class="text-center text-break">@(ViewBag.offset + data.index + 1)</th>
+							<td class="text-break">@data.value.EnglishTest</td>
+							<td class="text-break">@data.value.TestFormat</td>
+							<td class="text-break">@data.value.Topic</td>
+							<td class="text-content">
+								<a class="accordion-toggle text-black" data-toggle="collapse" href="#question-@data.index">
+									@data.value.Question
+								</a>
+							</td>
+							<td class="text-content">
+								<a class="accordion-toggle text-black" data-toggle="collapse" href="#content-@data.index">
+									@data.value.Content
+								</a>
+							</td>
+							<td class="text-center text-break">@data.value.Score</td>
+							<td class="text-center">
+								@if (!string.IsNullOrEmpty(data.value.AudioName))
+								{
+									<input class="ml-0 form-check-input checkbox-file" type="checkbox" checked disabled>
+								}
+								else
+								{
+									<input class="ml-0 form-check-input checkbox-file" type="checkbox" disabled>
+								}
+							</td>
+							<td class="text-center">
+								@if (!string.IsNullOrEmpty(data.value.ImageName))
+								{
+									<input class="ml-0 form-check-input checkbox-file" type="checkbox" checked disabled>
+								}
+								else
+								{
+									<input class="ml-0 form-check-input checkbox-file" type="checkbox" disabled>
+								}
+							</td>
+							<td class="d-flex justify-content-around border-0">
+								<button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" onclick="window.location.href='@Url.Action("Index", "EditData", new { id = data.value.Id })'"><i class="fa fa-edit"></i></button>
+								<button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete(@data.value.Id, 'delete-data')"><i class="fa fa-trash"></i></button>
+							</td>
+						</tr>
+					</tbody>
+					<tbody id="question-@data.index" class="collapse" style="border:1px solid black;">
+						<tr>
+							<td colspan="10" class="text-break">
+								@data.value.Question
+							</td>
+						</tr>
+					</tbody>
+					<tbody id="content-@data.index" class="collapse" style="border:1px solid black;">
+						<tr>
+							<td colspan="10" class="text-break">
+								@data.value.Content
+							</td>
+						</tr>
+					</tbody>
+				}
+			</table>
+		</div>
+
+		@if (ViewBag.totalPage > 1)
+		{
+			ViewBag.firstPage = ViewBag.listPaging[0];
+			<div class="mt-3">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						@if (ViewBag.firstPage > ViewBag.limitPaging)
+						{
+							<li class="page-item">
+								<a class="page-link" aria-label="Previous" href="@Url.Action("Index", "ListData", new
+								{
+									page = ViewBag.firstPage - ViewBag.limitPaging,
+									topic = ViewBag.topicSearch
+								})"><span aria-hidden="true">&laquo;</span></a>
+							</li>
+						}
+						@foreach (var pageNumber in ViewBag.listPaging)
+						{
+							if (ViewBag.page == pageNumber)
+							{
+								<li class="page-item"><a class="page-link text-white" style="background-color:#2D78B2;">@pageNumber</a></li>
+							}
+							else
+							{
+								<li class="page-item">
+									<a class="page-link" href="@Url.Action("Index", "ListData", new
+										{
+											page = pageNumber,
+											topic = ViewBag.topicSearch
+										})">@pageNumber</a>
+									</li>
+								}
+							}
+						@if ((ViewBag.firstPage + ViewBag.limitPaging) <= ViewBag.totalPage)
+						{
+							<li class="page-item">
+								<a class="page-link" href="@Url.Action("Index", "ListData", new
+								{
+									page = ViewBag.firstPage + ViewBag.limitPaging,
+									topic = ViewBag.topicSearch
+								})"><span aria-hidden="true">&raquo;</span></a>
+							</li>
+						}
+					</ul>
+				</nav>
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,21 @@
+2021-09-01 21:59:50,750	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT l.id, m.name, l.content, l.score, l.file_audio, l.file_image FROM labeled_data AS l
+ INNER JOIN mst_category AS m ON l.topic_id = m.id
+ WHERE user_id=@userId AND m.name LIKE @topic
+ ORDER BY LOWER(topic) ASC
+ LIMIT @limit OFFSET @offset
+ - Error:The column name 'user_id' does not exist in the result set.
+2021-09-01 21:59:50,761	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:The column name 'user_id' does not exist in the result set.
+2021-09-01 22:05:58,941	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT l.id, m.name, l.content, l.score, l.file_audio, l.file_image FROM labeled_data AS l
+ INNER JOIN mst_category AS m ON l.topic_id = m.id
+ WHERE user_id=@userId AND m.name LIKE @topic
+ ORDER BY LOWER(topic) ASC
+ LIMIT @limit OFFSET @offset
+ - Error:Unknown column 'topic' in 'order clause'
+2021-09-01 22:05:59,015	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Unknown column 'topic' in 'order clause'
+2021-09-01 22:08:34,015	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT l.id, m.name, l.content, l.score, l.file_audio, l.file_image FROM labeled_data AS l
+ INNER JOIN mst_category AS m ON l.topic_id = m.id
+ WHERE user_id=@userId AND m.name LIKE @topic
+ ORDER BY LOWER(topic) ASC
+ LIMIT @limit OFFSET @offset
+ - Error:Unknown column 'topic' in 'order clause'
+2021-09-01 22:08:34,031	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Unknown column 'topic' in 'order clause'

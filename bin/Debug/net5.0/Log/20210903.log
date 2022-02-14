@@ -1,0 +1,140 @@
+2021-09-03 00:01:17,547	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:01:17,556	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:01:17,558	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:03:25,774	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:03:25,783	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:03:25,784	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:04:58,556	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Parameter '@topic1' must be defined. To use this as a variable, set 'Allow User Variables=true' in the connection string.
+2021-09-03 00:09:59,951	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format
+ - Error:This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+2021-09-03 00:09:59,959	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+2021-09-03 00:09:59,960	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+2021-09-03 03:30:26,244	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::InsertData() :: Sql=INSERT INTO labeled_data (user_id, topic_id, content, score, file_audio, file_image)
+VALUES (@userId, @topicId, @content, @score, @fileAudio, @fileImage)
+ - Error:Field 'english_test_id' doesn't have a default value
+2021-09-03 03:30:26,254	[ERROR]	LabeledData.Controllers.AddData+<IndexAsync>d__2::MoveNext() :: Error:Field 'english_test_id' doesn't have a default value
+2021-09-03 03:33:06,803	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Subquery returns more than 1 row
+2021-09-03 03:33:06,820	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Subquery returns more than 1 row
+2021-09-03 03:33:06,823	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Subquery returns more than 1 row
+2021-09-03 03:33:40,963	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Subquery returns more than 1 row
+2021-09-03 03:33:40,963	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Subquery returns more than 1 row
+2021-09-03 03:33:40,963	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Subquery returns more than 1 row
+2021-09-03 03:34:06,230	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Subquery returns more than 1 row
+2021-09-03 03:34:06,282	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Subquery returns more than 1 row
+2021-09-03 03:34:06,332	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Subquery returns more than 1 row
+2021-09-03 03:34:30,644	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Subquery returns more than 1 row
+2021-09-03 03:34:30,691	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Subquery returns more than 1 row
+2021-09-03 03:34:30,731	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Subquery returns more than 1 row
+2021-09-03 03:36:44,339	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetNameType() :: Sql=SET @topic1 = '0';
+SET @english_test1 = '0';
+SET @test_format1 = '0';
+CALL get_labeled_data(@topic, @english_test, @test_format, @topic1, @english_test1, @test_format1);
+SELECT @topic1 AS topic, @english_test1 AS english_test, @test_format1 AS test_format - Error:Subquery returns more than 1 row
+2021-09-03 03:36:44,346	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetAllData() :: Sql=SELECT * FROM labeled_data
+ WHERE user_id=@userId
+ LIMIT @limit OFFSET @offset
+ - Error:Subquery returns more than 1 row
+2021-09-03 03:36:44,347	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Subquery returns more than 1 row
+2021-09-03 13:36:29,532	[ERROR]	LabeledData.Dao.Impl.MstCategoryDaoImpl::GetAllListCategory() :: Sql=SELECT * FROM mst_category
+ - Error:The column name 'type' does not exist in the result set.
+2021-09-03 13:36:29,543	[ERROR]	LabeledData.Controllers.AddData::Index() :: Error:The column name 'type' does not exist in the result set.
+2021-09-03 13:50:20,907	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 13:53:58,490	[ERROR]	LabeledData.Dao.Impl.MstCategoryDaoImpl::GetTotalCategory() :: Sql=SELECT COUNT(m.*) FROM mst_category m
+ INNER JOIN mst_english_type AS e
+ ON m.tag_type = e.tag_type
+ WHERE UPPER(m.name) LIKE UPPER(@name)
+ - Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) FROM mst_category m
+ INNER JOIN mst_english_type AS e
+ ON m.tag_type = e.ta' at line 1
+2021-09-03 13:53:58,499	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) FROM mst_category m
+ INNER JOIN mst_english_type AS e
+ ON m.tag_type = e.ta' at line 1
+2021-09-03 13:55:57,537	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 13:56:55,953	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 13:57:15,829	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 13:58:15,996	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 14:03:17,444	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 14:05:27,182	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+2021-09-03 14:05:52,233	[ERROR]	LabeledDataManagement.Controllers.ListCategory::Index() :: Error:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 10 OFFSET 0' at line 1
+2021-09-03 19:05:26,691	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+ WHERE id=@id - Error:Safe handle has been closed.
+Object name: 'SafeHandle'.
+2021-09-03 19:09:31,824	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file=@fileAudio WHERE id=@id - Error:Unknown column 'file' in 'field list'
+2021-09-03 19:13:59,363	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::DeleteData() :: Sql=DELETE FROM labeled_data WHERE id=@id
+ - Error:Could not find a part of the path 'C:\Users\phamhuuphuoc\Desktop\New folder\LabeledDataManagement\Files\3\Audio\202109031910468842.mp3'.
+2021-09-03 19:13:59,372	[ERROR]	LabeledData.Controllers.ListData::Delete() :: Error:Could not find a part of the path 'C:\Users\phamhuuphuoc\Desktop\New folder\LabeledDataManagement\Files\3\Audio\202109031910468842.mp3'.
+2021-09-03 19:15:41,859	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 19:42:41,376	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 19:53:39,823	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 20:07:14,486	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 20:17:24,531	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 20:19:10,589	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl+<UpdateDataAsync>d__8::MoveNext() :: Sql=UPDATE labeled_data SET topic_id=@topicId, content=@content, score=@score, question=@question, english_test_id=@englishTestId, test_format_id=@testFormatId
+, file_audio=@fileAudio WHERE id=@id - Error:Cannot access a closed file.
+2021-09-03 21:54:47,975	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetTotalData() :: Sql=SELECT COUNT(*) FROM labeled_data AS l
+ INNER JOIN mst_category AS m ON l.topic_id = m.id
+ WHERE user_id=@userId AND m.name LIKE @topic
+ - Error:Unknown column 'l.topic_id' in 'on clause'
+2021-09-03 21:54:47,989	[ERROR]	LabeledData.Controllers.ListData::Index() :: Error:Unknown column 'l.topic_id' in 'on clause'
+2021-09-03 21:56:09,781	[ERROR]	LabeledData.Dao.Impl.LabeledDataDaoImpl::GetTotalData() :: Sql=SELECT COUNT(*) FROM labeled_data AS l
+ INNER JOIN mst_category AS m ON l.topic_id = m.id
+ WHERE user_id=@userId AND m.name LIKE @topic
+ - Error:Unknown column 'l.topic_id' in 'on clause'

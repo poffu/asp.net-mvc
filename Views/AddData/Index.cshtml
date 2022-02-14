@@ -1,0 +1,171 @@
+﻿@model LabeledData.Models.LabeledDataDto
+
+@if (Model == null || Model.Id == 0)
+{
+	ViewBag.controller = Html.BeginForm("Index", "AddData", FormMethod.Post, new { enctype = "multipart/form-data", @class = "contact100-form validate-form" });
+}
+else
+{
+	ViewBag.controller = Html.BeginForm("Index", "EditData", FormMethod.Post, new { enctype = "multipart/form-data", @class = "contact100-form validate-form" });
+}
+
+@{
+	Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container-contact100">
+	<div class="wrap-contact100" style="width:1000px;">
+		@using (ViewBag.controller)
+		{
+			@Html.AntiForgeryToken()
+			@Html.ValidationSummary(true, null)
+			@Html.HiddenFor(m => m.Id)
+			@Html.Hidden("AudioName", (object)ViewBag.audioName)
+			@Html.Hidden("ImageName", (object)ViewBag.imageName)
+			@Html.Hidden("UserId", (object)ViewBag.userId)
+
+			@if (Model == null || Model.Id == 0)
+			{
+				<span class="contact100-form-title">
+					Add Data
+				</span>
+			}
+			else
+			{
+				<span class="contact100-form-title">
+					Edit Data
+				</span>
+			}
+
+			<div class="text-danger fw-bold text-center mb-4">
+				<div>
+					@Html.ValidationMessageFor(m => m.EnglishTestId)
+				</div>
+				<div>
+					@Html.ValidationMessageFor(m => m.TestFormatId)
+				</div>
+				<div>
+					@Html.ValidationMessageFor(m => m.TopicId)
+				</div>
+				<div>
+					@Html.ValidationMessageFor(m => m.Score)
+				</div>
+				@Html.ValidationMessageFor(m => m.Audio)
+			</div>
+
+			<div class="wrap-input100 input100-select">
+				<span class="label-input100">English test</span>
+				<div>
+					<select name="EnglishTestId" class="selection-2">
+						<option value="0">--- Select english test ---</option>
+						@foreach (var item in ViewBag.englishTestList)
+						{
+							if (ViewBag.englishTestId == item.Id)
+							{
+								<option value="@item.Id" selected>@item.Name</option>
+							}
+							else
+							{
+								<option value="@item.Id">@item.Name</option>
+							}
+						}
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+
+			<div class="wrap-input100 input100-select">
+				<span class="label-input100">Test format</span>
+				<div>
+					<select name="TestFormatId" class="selection-2">
+						<option value="0">--- Select test format ---</option>
+						@foreach (var item in ViewBag.testFormatList)
+						{
+							if (ViewBag.testFormatId == item.Id)
+							{
+								<option value="@item.Id" selected>@item.Name</option>
+							}
+							else
+							{
+								<option value="@item.Id">@item.Name</option>
+							}
+						}
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+
+			<div class="wrap-input100 input100-select">
+				<span class="label-input100">Topic</span>
+				<div>
+					<select name="TopicId" class="selection-2">
+						<option value="0">--- Select topic ---</option>
+						@foreach (var item in ViewBag.topicList)
+						{
+							if (ViewBag.topicId == item.Id)
+							{
+								<option value="@item.Id" selected>@item.Name</option>
+							}
+							else
+							{
+								<option value="@item.Id">@item.Name</option>
+							}
+						}
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Question</span>
+				@Html.TextAreaFor(m => m.Question, new { placeholder = "Enter question", @class = "input100", @style = "min-height:155px" })
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Content</span>
+				@Html.TextAreaFor(m => m.Content, new { placeholder = "Enter content", @class = "input100", @style = "min-height:155px" })
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Score</span>
+				@Html.TextBoxFor(m => m.Score, new { placeholder = "Enter score", @class = "input100" })
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Audio</span>
+				@Html.TextBoxFor(m => m.Audio, new { placeholder = "Enter file", @class = "input100", type = "file" })
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Image</span>
+				@Html.TextBoxFor(m => m.Image, new { placeholder = "Enter file", multiple = "multiple", @class = "input100", type = "file" })
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="container-contact100-form-btn">
+				<div class="wrap-contact100-form-btn">
+					<div class="contact100-form-bgbtn"></div>
+					<button class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+<div id="dropDownSelect1"></div>
+
+<script>
+	$(".selection-2").select2({
+		minimumResultsForSearch: 20,
+		dropdownParent: $('#dropDownSelect1')
+	});
+</script>

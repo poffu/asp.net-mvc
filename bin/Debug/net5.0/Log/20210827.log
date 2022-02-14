@@ -1,0 +1,22 @@
+2021-08-27 00:54:19,221	[ERROR]	ManageUser.Dao.Impl.LabeledDataDaoImpl::InsertData() :: Sql=INSERT INTO labeled_data (user_id, topic, content, score, file)
+VALUES (@userId, @topic, @content, @score, @file)
+ - Error:Column 'score' cannot be null
+2021-08-27 00:54:19,759	[ERROR]	ManageUser.Controllers.AddCategoryController+<IndexAsync>d__2::MoveNext() :: Error:Column 'score' cannot be null
+2021-08-27 00:55:37,169	[ERROR]	ManageUser.Dao.Impl.LabeledDataDaoImpl::InsertData() :: Sql=INSERT INTO labeled_data (user_id, topic, content, score, file)
+VALUES (@userId, @topic, @content, @score, @file)
+ - Error:Column 'score' cannot be null
+2021-08-27 00:55:37,214	[ERROR]	ManageUser.Controllers.AddCategoryController+<IndexAsync>d__2::MoveNext() :: Error:Column 'score' cannot be null
+2021-08-27 01:14:38,879	[ERROR]	ManageUser.Dao.Impl.LabeledDataDaoImpl::InsertData() :: Sql=INSERT INTO labeled_data (user_id, topic, content, score, file)
+VALUES (@userId, @topic, @content, @score, @file)
+ - Error:Column 'score' cannot be null
+2021-08-27 01:14:38,892	[ERROR]	ManageUser.Controllers.AddCategoryController+<IndexAsync>d__2::MoveNext() :: Error:Column 'score' cannot be null
+2021-08-27 02:11:28,681	[ERROR]	ManageUser.Dao.Impl.TblUserDaoImpl::Login() :: Sql=SELECT * FROM tbl_user WHERE login_name=@loginName LIMIT 1
+ - Error:hashStr
+2021-08-27 02:11:28,727	[ERROR]	ManageUser.Controllers.LoginController::Index() :: Error:hashStr
+2021-08-27 02:11:49,258	[ERROR]	ManageUser.Dao.Impl.TblUserDaoImpl::Login() :: Sql=SELECT * FROM tbl_user WHERE login_name=@loginName LIMIT 1
+ - Error:hashStr
+2021-08-27 02:11:49,258	[ERROR]	ManageUser.Controllers.LoginController::Index() :: Error:hashStr
+2021-08-27 15:22:11,944	[ERROR]	ManageUser.Controllers.ListUserController::Download() :: Error:Value cannot be null. (Parameter 'path2')
+2021-08-27 15:22:34,841	[ERROR]	ManageUser.Controllers.ListUserController::Download() :: Error:Value cannot be null. (Parameter 'path2')
+2021-08-27 15:49:53,830	[ERROR]	ManageUser.Controllers.ListUserController::Download() :: Error:Value cannot be null. (Parameter 'path2')
+2021-08-27 17:01:54,626	[ERROR]	ManageUser.Controllers.ListUserController::Index() :: Error:Object reference not set to an instance of an object.
