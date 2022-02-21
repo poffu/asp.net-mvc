@@ -1,2 +1,0 @@
-2021-08-28 20:43:26,819	[ERROR]	LabeledData.Dao.Impl.TblUserDaoImpl::Login() :: Sql= - Error:Connect Timeout expired.
-2021-08-28 20:43:26,841	[ERROR]	LabeledData.Controllers.LoginController::Index() :: Error:Connect Timeout expired.

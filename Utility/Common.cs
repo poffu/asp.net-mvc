@@ -149,7 +149,7 @@ namespace LabeledData.Utility
 
 		public static string CreatFileAudio(int userId, string type, IFormFile file)
 		{
-			string path = Path.Combine("/home/appuser/Files", userId.ToString(), type);
+			string path = Path.Combine("Files", userId.ToString(), type);
 			Directory.CreateDirectory(path);
 			String fileName = string.Format("{0}.{1}", DateTime.Now.ToString("yyyyMMddHHmmssffff"), SubPathFile(file));
 			string pathAudio = Path.Combine(path, fileName);
@@ -163,7 +163,7 @@ namespace LabeledData.Utility
 			string pathAudioFile = string.Empty;
 			FileStream stream = null;
 			string dateTimeNow = DateTime.Now.ToString("yyyyMMddHHmmssffff");
-			string path = Path.Combine("/home/appuser/Files", userId.ToString(), type);
+			string path = Path.Combine("Files", userId.ToString(), type);
 			Directory.CreateDirectory(path);
 			int temp = 1;
 			foreach (var file in fileList)

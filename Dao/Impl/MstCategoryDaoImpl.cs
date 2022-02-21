@@ -1,12 +1,12 @@
 ﻿using LabeledData.Models;
 using LabeledData.Utility;
 using log4net;
-using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Linq;
+using Npgsql;
 
 namespace LabeledData.Dao.Impl
 {
@@ -24,7 +24,7 @@ namespace LabeledData.Dao.Impl
 		{
 			List<MstCategoryDto> mstCategoryList = new List<MstCategoryDto>();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -34,7 +34,7 @@ namespace LabeledData.Dao.Impl
 						sql.AppendLine("SELECT m.*, e.name AS type FROM mst_category m");
 						sql.AppendLine(" INNER JOIN mst_english_type AS e");
 						sql.AppendLine(" ON m.tag_type = e.tag_type");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						var reader = cmd.ExecuteReader();
 						while (reader.Read())
 						{
@@ -61,7 +61,7 @@ namespace LabeledData.Dao.Impl
 		{
 			int totalCategory = 0;
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -76,7 +76,7 @@ namespace LabeledData.Dao.Impl
 						{
 							sql.Append(" AND m.tag_type=@tagType");
 						}
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@name", string.Format("%{0}%", Common.EncodeWildCard(name)));
 						if (tagType != -1)
 						{
@@ -102,7 +102,7 @@ namespace LabeledData.Dao.Impl
 		{
 			List<MstCategoryDto> mstCategoryList = new List<MstCategoryDto>();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -119,7 +119,7 @@ namespace LabeledData.Dao.Impl
 						}
 						sql.AppendLine(" ORDER BY e.tag_type ASC, LOWER(m.name) ASC");
 						sql.AppendLine(" LIMIT @limit OFFSET @offset");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@name", string.Format("%{0}%", Common.EncodeWildCard(name)));
 						if (tagType != -1)
 						{
@@ -153,7 +153,7 @@ namespace LabeledData.Dao.Impl
 		{
 			Dictionary<int, string> typeList = new Dictionary<int, string>();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -162,7 +162,7 @@ namespace LabeledData.Dao.Impl
 					{
 						sql.AppendLine("SELECT DISTINCT * FROM mst_english_type AS e");
 						sql.AppendLine(" ORDER BY e.tag_type ASC");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						var reader = cmd.ExecuteReader();
 						while (reader.Read())
 						{
@@ -197,7 +197,7 @@ namespace LabeledData.Dao.Impl
 		public void InsertCategory(MstCategoryDto mstCategoryDto)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			int tagType = mstCategoryDto.TagType;
 			try
 			{
@@ -206,7 +206,7 @@ namespace LabeledData.Dao.Impl
 				{
 					sql.AppendLine("INSERT INTO mst_category (name, tag_type)");
 					sql.AppendLine("VALUES (@name, @tagType)");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@name", mstCategoryDto.Name);
 					cmd.Parameters.AddWithValue("@tagType", tagType);
 					cmd.ExecuteNonQuery();
@@ -226,7 +226,7 @@ namespace LabeledData.Dao.Impl
 		public void UpdateCategory(MstCategoryDto mstCategoryDto)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
@@ -234,7 +234,7 @@ namespace LabeledData.Dao.Impl
 				{
 					sql.AppendLine("UPDATE mst_category SET name=@name, tag_type=@tagType");
 					sql.Append(" WHERE id=@id");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@name", mstCategoryDto.Name);
 					cmd.Parameters.AddWithValue("@tagType", mstCategoryDto.TagType);
 					cmd.Parameters.AddWithValue("@id", mstCategoryDto.Id);
@@ -256,7 +256,7 @@ namespace LabeledData.Dao.Impl
 		{
 			MstCategoryDto mstCategoryDto = new MstCategoryDto();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -264,7 +264,7 @@ namespace LabeledData.Dao.Impl
 					if (conn != null)
 					{
 						sql.AppendLine("SELECT * FROM mst_category WHERE id=@id LIMIT 1");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@id", id);
 						var reader = cmd.ExecuteReader();
 						if (reader.Read())
@@ -289,14 +289,14 @@ namespace LabeledData.Dao.Impl
 		public void DeleteDataCategory(int id)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
 				if (conn != null)
 				{
 					sql.AppendLine("DELETE FROM mst_category WHERE id=@id");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@id", id);
 					cmd.ExecuteNonQuery();
 				}
@@ -312,7 +312,7 @@ namespace LabeledData.Dao.Impl
 			}
 		}
 
-		private MstCategoryDto GetMstCategoryDto(MySqlDataReader reader)
+		private MstCategoryDto GetMstCategoryDto(NpgsqlDataReader reader)
 		{
 			MstCategoryDto mstCategoryDto = new MstCategoryDto
 			{

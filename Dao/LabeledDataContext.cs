@@ -1,8 +1,8 @@
 ﻿using log4net;
 using LabeledData.Utility;
-using MySqlConnector;
 using System;
 using System.Reflection;
+using Npgsql;
 
 namespace LabeledData.Dao
 {
@@ -13,15 +13,15 @@ namespace LabeledData.Dao
 
 		public LabeledDataContext()
 		{
-			connetionString = "server=localhost;user=root;password=0000;database=labeled_data;AllowUserVariables=True;";
+			connetionString = "Host=python-training.cvjyerl6whev.us-west-2.rds.amazonaws.com;Username=postgres;Password=00000000;Database=labeled_data;";
 		}
 
-		public MySqlConnection GetConnection()
+		public NpgsqlConnection GetConnection()
 		{
-			return new MySqlConnection(connetionString);
+			return new NpgsqlConnection(connetionString);
 		}
 
-		public void CloseConnection(MySqlConnection conn)
+		public void CloseConnection(NpgsqlConnection conn)
 		{
 			try
 			{

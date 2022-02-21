@@ -1,11 +1,11 @@
 ﻿using log4net;
 using LabeledData.Models;
 using LabeledData.Utility;
-using MySqlConnector;
 using System;
 using System.Reflection;
 using System.Text;
 using System.Collections.Generic;
+using Npgsql;
 
 namespace LabeledData.Dao.Impl
 {
@@ -23,7 +23,7 @@ namespace LabeledData.Dao.Impl
 		{
 			TblUserDto tblUser = new TblUserDto();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -31,7 +31,7 @@ namespace LabeledData.Dao.Impl
 					if (conn != null)
 					{
 						sql.AppendLine("UPDATE tbl_user SET password=@password WHERE user_id=@userId");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						string password = Common.SignUp(newPassword);
 						cmd.Parameters.AddWithValue("@password", password);
 						cmd.Parameters.AddWithValue("@userId", tblUserDto.UserId);
@@ -64,14 +64,14 @@ namespace LabeledData.Dao.Impl
 		{
 			bool check = false;
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
 				if (conn != null)
 				{
 					sql.AppendLine("SELECT * FROM tbl_user WHERE user_id!=@userId AND login_name=@loginName LIMIT 1");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@userId", userId);
 					cmd.Parameters.AddWithValue("@loginName", loginName);
 					var reader = cmd.ExecuteReader();
@@ -96,7 +96,7 @@ namespace LabeledData.Dao.Impl
 		public void InsertUser(TblUserDto tblUserDto)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
@@ -104,7 +104,7 @@ namespace LabeledData.Dao.Impl
 				{
 					sql.AppendLine("INSERT INTO tbl_user (login_name, full_name, password, rule)");
 					sql.AppendLine("VALUES (@loginName, @fullName, @password, @rule)");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@loginName", tblUserDto.LoginName);
 					cmd.Parameters.AddWithValue("@fullName", tblUserDto.FullName);
 					cmd.Parameters.AddWithValue("@password", Common.SignUp(tblUserDto.Password));
@@ -127,7 +127,7 @@ namespace LabeledData.Dao.Impl
 		{
 			TblUserDto tblUser = new TblUserDto();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -135,7 +135,7 @@ namespace LabeledData.Dao.Impl
 					if (conn != null)
 					{
 						sql.AppendLine("SELECT * FROM tbl_user WHERE login_name=@loginName LIMIT 1");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@loginName", loginName);
 						var reader = cmd.ExecuteReader();
 						if (reader.Read())
@@ -173,7 +173,7 @@ namespace LabeledData.Dao.Impl
 		{
 			int totalUser = 0;
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -181,7 +181,7 @@ namespace LabeledData.Dao.Impl
 					if (conn != null)
 					{
 						sql.AppendLine("SELECT COUNT(*) FROM tbl_user WHERE rule!=@rule AND login_name LIKE @username");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@rule", 0);
 						cmd.Parameters.AddWithValue("@username", string.Format("%{0}%", Common.EncodeWildCard(username)));
 						totalUser = Convert.ToInt32(cmd.ExecuteScalar());
@@ -205,7 +205,7 @@ namespace LabeledData.Dao.Impl
 			List<TblUserDto> tblUserList = new List<TblUserDto>();
 			StringBuilder sql = new StringBuilder();
 			ILabeledDataDao labeledDataDao = new LabeledDataDaoImpl();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -215,7 +215,7 @@ namespace LabeledData.Dao.Impl
 						sql.AppendLine("SELECT * FROM tbl_user WHERE rule!=@rule AND login_name LIKE @username");
 						sql.AppendLine(" ORDER BY LOWER(login_name) ASC");
 						sql.AppendLine(" LIMIT @limit OFFSET @offset");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@rule", 0);
 						cmd.Parameters.AddWithValue("@username", string.Format("%{0}%", Common.EncodeWildCard(username)));
 						cmd.Parameters.AddWithValue("@limit", limitRecord);
@@ -246,7 +246,7 @@ namespace LabeledData.Dao.Impl
 		{
 			TblUserDto tblUser = new TblUserDto();
 			StringBuilder sql = new StringBuilder();
-			using (MySqlConnection conn = labeledDataContext.GetConnection())
+			using (NpgsqlConnection conn = labeledDataContext.GetConnection())
 			{
 				try
 				{
@@ -254,7 +254,7 @@ namespace LabeledData.Dao.Impl
 					if (conn != null)
 					{
 						sql.AppendLine("SELECT * FROM tbl_user WHERE user_id=@userId LIMIT 1");
-						MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+						NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 						cmd.Parameters.AddWithValue("@userId", userId);
 						var reader = cmd.ExecuteReader();
 						if (reader.Read())
@@ -279,7 +279,7 @@ namespace LabeledData.Dao.Impl
 		public void UpdateUser(TblUserDto tblUserDto)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
@@ -287,7 +287,7 @@ namespace LabeledData.Dao.Impl
 				{
 					sql.AppendLine("UPDATE tbl_user SET login_name=@loginName, full_name=@fullName, password=@password");
 					sql.Append(" WHERE user_id=@userId");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@loginName", tblUserDto.LoginName);
 					cmd.Parameters.AddWithValue("@fullName", tblUserDto.FullName);
 					cmd.Parameters.AddWithValue("@password", Common.SignUp(tblUserDto.Password));
@@ -309,14 +309,14 @@ namespace LabeledData.Dao.Impl
 		public void DeleteUser(int userId)
 		{
 			StringBuilder sql = new StringBuilder();
-			using MySqlConnection conn = labeledDataContext.GetConnection();
+			using NpgsqlConnection conn = labeledDataContext.GetConnection();
 			try
 			{
 				conn.Open();
 				if (conn != null)
 				{
 					sql.AppendLine("DELETE FROM tbl_user WHERE user_id=@userId");
-					MySqlCommand cmd = new MySqlCommand(sql.ToString(), conn);
+					NpgsqlCommand cmd = new NpgsqlCommand(sql.ToString(), conn);
 					cmd.Parameters.AddWithValue("@userId", userId);
 					cmd.ExecuteNonQuery();
 				}
@@ -332,7 +332,7 @@ namespace LabeledData.Dao.Impl
 			}
 		}
 
-		private TblUserDto GetTblUserDto(MySqlDataReader reader)
+		private TblUserDto GetTblUserDto(NpgsqlDataReader reader)
 		{
 			TblUserDto tblUserDto = new TblUserDto
 			{
