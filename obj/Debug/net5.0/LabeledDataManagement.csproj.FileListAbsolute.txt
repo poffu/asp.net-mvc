@@ -135,7 +135,6 @@ D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Web.WebPages.Deploymen
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Web.WebPages.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
-D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\MySqlConnector.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll

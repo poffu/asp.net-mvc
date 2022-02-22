@@ -61,7 +61,20 @@ else
 				@Html.TextBoxFor(m => m.FullName, new { placeholder = "Enter name", @class = "input100" })
 				<span class="focus-input100"></span>
 			</div>
-
+			@if (Model == null || Model.UserId == 0)
+			{
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">English test</span>
+					<div>
+						<select name="Rule" class="selection-2">
+							<option>--- Select role ---</option>
+							<option value="0">Admin</option>
+							<option value="1">User</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+			}
 			<div class="wrap-input100 validate-input">
 				<span class="label-input100">Password</span>
 				@Html.PasswordFor(m => m.Password, new { placeholder = "Enter password", @class = "input100" })
@@ -88,3 +101,12 @@ else
 		}
 	</div>
 </div>
+
+<div id="dropDownSelect1"></div>
+
+<script>
+	$(".selection-2").select2({
+		minimumResultsForSearch: 20,
+		dropdownParent: $('#dropDownSelect1')
+	});
+</script>

@@ -27,7 +27,7 @@ namespace LabeledData.Models
 			LoginName = string.Empty;
 			FullName = string.Empty;
 			Password = string.Empty;
-			Rule = 0;
+			Rule = 1;
 			NewPassword = string.Empty;
 			PasswordConfirm = string.Empty;
 			DataCount = 0;
