@@ -48,22 +48,22 @@ namespace LabeledData.Controllers
                             HttpContext.Session.SetString("Login", JsonConvert.SerializeObject(tblUserModel));
                             if (tblUserModel.Rule == 0)
                             {
-                                SetAlert("Success", "/ListUser/Index");
+                                SetAlert("Success", "/ListUser");
                             }
                             else
                             {
-                                SetAlert("Success", "/ListData/Index");
+                                SetAlert("Success", "/ListData");
                             }
                         }
                         else
                         {
                             if (tblUserSession.Rule == 0)
                             {
-                                SetAlert("Fail", "/ListUser/Index");
+                                SetAlert("Fail", "/ListUser");
                             }
                             else
                             {
-                                SetAlert("Fail", "/ListData/Index");
+                                SetAlert("Fail", "/ListData");
                             }
                         }
                     }

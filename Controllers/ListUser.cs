@@ -64,11 +64,11 @@ namespace LabeledDataManagement.Controllers
                 if (tblUserDto.UserId != 0)
                 {
                     tblUser.DeleteUser(id);
-                    SetAlert("Deleted", "/ListUser/Index");
+                    SetAlert("Deleted", "/ListUser");
                 }
                 else
                 {
-                    SetAlert("User isn't exist", "/ListUser/Index");
+                    SetAlert("User isn't exist", "/ListUser");
                 }
             }
             catch (Exception e)

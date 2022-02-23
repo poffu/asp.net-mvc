@@ -36,7 +36,6 @@
 			@using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "contact100-form validate-form" }))
 			{
 				@Html.AntiForgeryToken()
-				@Html.ValidationSummary(true, null)
 
 				<span class="contact100-form-title">
 					Login

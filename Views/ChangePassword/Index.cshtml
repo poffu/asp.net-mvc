@@ -14,7 +14,6 @@ else
 		@using (Html.BeginForm("Index", "ChangePassword", FormMethod.Post, new { @class = "contact100-form validate-form" }))
 		{
 			@Html.AntiForgeryToken()
-			@Html.ValidationSummary(true, null)
 
 			<span class="contact100-form-title">
 				Change Password

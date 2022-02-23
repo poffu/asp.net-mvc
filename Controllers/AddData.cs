@@ -35,7 +35,7 @@ namespace LabeledData.Controllers
                 {
                     ILabeledData labeledData = new LabeledDataImpl();
                     labeledData.InsertData(labeledDataDto);
-                    SetAlert("Success", "/ListData/Index");
+                    SetAlert("Success", "/ListData");
                 }
                 ViewBag.englishTestId = labeledDataDto.EnglishTestId;
                 ViewBag.testFormatId = labeledDataDto.TestFormatId;

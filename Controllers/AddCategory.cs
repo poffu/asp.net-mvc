@@ -21,7 +21,7 @@ namespace LabeledDataManagement.Controllers
                 {
                     IMstCategory mstCategory = new MstCategoryImpl();
                     mstCategory.InsertCategory(mstCategoryDto);
-                    SetAlert("Success", "/ListCategory/Index");
+                    SetAlert("Success", "/ListCategory");
                 }
                 else
                 {

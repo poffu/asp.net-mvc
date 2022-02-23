@@ -18,7 +18,6 @@ else
 		@using (ViewBag.controller)
 		{
 			@Html.AntiForgeryToken()
-			@Html.ValidationSummary(true, null)
 			@Html.HiddenFor(m => m.Id)
 			@Html.Hidden("AudioName", (object)ViewBag.audioName)
 			@Html.Hidden("ImageName", (object)ViewBag.imageName)
@@ -162,10 +161,3 @@ else
 </div>
 
 <div id="dropDownSelect1"></div>
-
-<script>
-	$(".selection-2").select2({
-		minimumResultsForSearch: 20,
-		dropdownParent: $('#dropDownSelect1')
-	});
-</script>

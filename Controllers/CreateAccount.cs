@@ -40,7 +40,7 @@ namespace LabeledData.Controllers
                     else
                     {
                         tblUser.InsertUser(tblUserDto);
-                        SetAlert("Success", "/ListUser/Index");
+                        SetAlert("Success", "/ListUser");
                     }
                 }
             }
