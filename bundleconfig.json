@@ -1,0 +1,37 @@
+[
+    {
+        "outputFileName": "wwwroot/site.min.css",
+        "inputFiles": [
+            "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+            "wwwroot/css/site.css",
+            "wwwroot/view/vendor/bootstrap/css/bootstrap.min.css",
+            "wwwroot/view/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
+            "wwwroot/view/vendor/animate/animate.css",
+            "wwwroot/view/vendor/css-hamburgers/hamburgers.min.css",
+            "wwwroot/view/vendor/animsition/css/animsition.min.css",
+            "wwwroot/view/vendor/select2/select2.min.css",
+            "wwwroot/view/vendor/daterangepicker/daterangepicker.css",
+            "wwwroot/view/css/util.css",
+            "wwwroot/view/css/main.css"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/site.min.js",
+        "inputFiles": [
+            "wwwroot/view/vendor/jquery/jquery-3.2.1.min.js",
+            "wwwroot/view/vendor/animsition/js/animsition.min.js",
+            "wwwroot/view/vendor/bootstrap/js/popper.js",
+            "wwwroot/view/vendor/bootstrap/js/bootstrap.min.js",
+            "wwwroot/view/vendor/select2/select2.min.js",
+            "wwwroot/view/vendor/daterangepicker/moment.min.js",
+            "wwwroot/view/vendor/daterangepicker/daterangepicker.js",
+            "wwwroot/view/vendor/countdowntime/countdowntime.js",
+            "wwwroot/js/site.js"
+        ],
+        "minify": {
+            "enabled": true,
+            "renameLocals": true
+        },
+        "sourceMap": false
+    }
+]

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ReKw5aM83lxX8Z53mRe7UpCNhR+wS61UrDu6OFOPIEXfymvmnuFY9hT5ONMkgMdX87T2Vx8aLK6pX96i4t8RCw==",
+  "dgSpecHash": "Ue5+//M+gNiJctgXVxqEhJBO4534i+DaDqe+r/966xlSaB7ONeeF/mWVH8MOLZSm2GQmDpbf2ESLju2++EXoTg==",
   "success": true,
   "projectFilePath": "D:\\asp .net\\LabeledDataManagement\\LabeledDataManagement.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Poffu\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
     "C:\\Users\\Poffu\\.nuget\\packages\\log4net\\2.0.12\\log4net.2.0.12.nupkg.sha512",
     "C:\\Users\\Poffu\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\Poffu\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",

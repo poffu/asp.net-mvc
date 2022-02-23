@@ -173,3 +173,4 @@ D:\asp .net\LabeledDataManagement\obj\Debug\net5.0\LabeledDataManagement.pdb
 D:\asp .net\LabeledDataManagement\obj\Debug\net5.0\LabeledDataManagement.genruntimeconfig.cache
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\Npgsql.dll
 D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\asp .net\LabeledDataManagement\bin\Debug\net5.0\bundleconfig.json
