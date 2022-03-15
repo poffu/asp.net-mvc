@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ue5+//M+gNiJctgXVxqEhJBO4534i+DaDqe+r/966xlSaB7ONeeF/mWVH8MOLZSm2GQmDpbf2ESLju2++EXoTg==",
+  "dgSpecHash": "jsyJkJRvzaKXTS21PhCbMJP7Cc5BRr4G0m0K6m5UqzIYz0KqrvtoyshKjwjH1bBdbglDvM0hcvN8vjSFTUJA9g==",
   "success": true,
   "projectFilePath": "D:\\asp .net\\LabeledDataManagement\\LabeledDataManagement.csproj",
   "expectedPackageFiles": [
@@ -27,7 +27,8 @@
     "C:\\Users\\Poffu\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
     "C:\\Users\\Poffu\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
     "C:\\Users\\Poffu\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
-    "C:\\Users\\Poffu\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\Poffu\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\Poffu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
   ],
   "logs": [
     {

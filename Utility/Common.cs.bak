@@ -178,7 +178,6 @@ namespace LabeledData.Utility
 					pathAudioFile = string.Format("{0}, {1}", pathAudioFile, pathAudio);
 				}
 				temp++;
-				file.CopyTo(stream);
 				stream.Close();
 			}
 			return pathAudioFile;
